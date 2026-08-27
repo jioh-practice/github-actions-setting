@@ -1,0 +1,18 @@
+name: push-workflow 
+# name : 이름(생략가능) 액션 창에서 표횐될 시각화 이름이기 때문에 명시적으로 작성
+on: push 
+# on : 이벤트 -> 어떠한 이벤트에 의해서 워크플로우를 트리거하겠다는 의미
+
+jobs:
+  push-job:
+    runs-on: ubuntu-latest
+    steps : 
+    - name: step1
+    - run : echo hello world
+
+# jobs : 실행지킬 잡의 집합  (필수)
+# push-job 이라는 이름을 가진 job 생성
+# job을 실행시킬 러너를 지정하려면 runs-on 이라는 키워드 사용 
+# steps : step의 집합 , steps 안에 이 잡이 실행시킬 스탭을 정의
+# - name : 실행될 스탭의 이름을 명시적으로 작성(생략가능 )
+# run 키워드 사용 -> 이 워크플로우는 푸쉬 이벤트가 발생할 때 트리거가 되어 push job이라는 이름의 job 한 개가 실행되고 첫번째 스텝에 echo hello world를 출력하고 종료됨
