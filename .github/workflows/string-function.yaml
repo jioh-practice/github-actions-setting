@@ -9,7 +9,7 @@ jobs:
       if: startsWith('github actions', 'git')
       run: echo "git"
     - name: startsWith
-      if: startWith('github actions', 'test')
+      if: startsWith('github actions', 'test')
       run: echo "git"  
 
     - name: endsWith
@@ -19,9 +19,9 @@ jobs:
       if: endsWith('github actions', 'test')
       run: echo "test"
 
-    - name: conditions
-      if: conditions('github actions', 'act')
+    - name: contains
+      if: contains('github actions', 'act')
       run: echo "condition act"  
-    - name: conditions
-      if: conditions('github actions', 'git')
+    - name: contains
+      if: contains('github actions', 'git')
       run: echo "condition git"
