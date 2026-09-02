@@ -25,4 +25,4 @@ jobs:
         echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | gh auth login -- with-token
     - name: create-repo #입력받은 인풋값으로 repo 커맨드 작성 
       run: |
-        gh repo create jioh-practice/${{ input.prefix }}-${{inputs.name }} --public --add-readme
+        gh repo create jioh-practice/${{ inputs.prefix }}-${{inputs.name }} --public --add-readme
