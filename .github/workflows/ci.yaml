@@ -12,7 +12,7 @@ on:
         - service
       name: #이름을 설정해야하는 곳 
         description: 'set repo name'
-        required: tag
+        required: true
         default: 'github-actions'
         type: string
 
