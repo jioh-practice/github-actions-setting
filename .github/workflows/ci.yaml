@@ -1,0 +1,28 @@
+name: create-repository
+on:
+  workflow_dispatch:
+    inputs: 
+      prefix:  # 정해진 프리픽스만을 사용해야하니까 type : choice 
+        description: 'set repo prefix'
+        required: true
+        default: 'service'
+        type: choice
+        options:
+        - example
+        - service
+      name: #이름을 설정해야하는 곳 
+        description: 'set repo name'
+        required: tag
+        default: 'github-actions'
+        type: string
+
+jobs:
+  create-repo-automation:
+    runs-on: ubuntu-latest
+    steps: 
+    - name: gh auth login #github 권한 받아오기 
+      run: |
+        echo ${{ secrets.PERSONAL_ACCESS_TOKEN }} | gh auth login -- with-token
+    - name: create-repo #입력받은 인풋값으로 repo 커맨드 작성 
+      run: |
+        gh repo create jioh-practice/${{ input.prefix }}-${{inputs.name }} --public --add-readme
