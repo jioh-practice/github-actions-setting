@@ -7,7 +7,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     if: github.event_name == 'push'
-    step:
+    steps:
     - name: get evnet name
       run: echo ${{ github.event_name }}
   job2:
